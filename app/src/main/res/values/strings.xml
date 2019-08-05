@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Lovemetender</string>
+    <string name="destination_intro">Destination Introduction</string>
+    <string name="destination_name">Destination Name</string>
+    <string name="destination_type">Destination Type</string>
+    <string name="destination_opening_hrs">Destination Opening Hours</string>
+    <string name="location">Location </string>
+    <string name="weather_desc">Weather Description </string>
 </resources>
