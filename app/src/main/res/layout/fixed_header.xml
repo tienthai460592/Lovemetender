@@ -65,7 +65,7 @@
                     android:id="@+id/locationIcon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="0"
                     android:padding="5dp"
                     android:src="@drawable/navigation" />
@@ -105,7 +105,7 @@
                     android:id="@+id/map"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:text="Map"
                     android:textSize="18dp"
@@ -164,12 +164,12 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0"
                                 android:paddingTop="15dp"
-                                android:text="28"
+                                tools:text="28"
                                 android:textAlignment="viewStart"
                                 android:textSize="30sp" />
 
                             <ImageView
-                                android:id="@+id/imageView2"
+                                android:id="@+id/celcius"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -186,7 +186,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="@string/weather_desc"
+                            tools:text=""
                             android:textAlignment="viewStart" />
                     </LinearLayout>
 

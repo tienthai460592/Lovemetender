@@ -10,11 +10,12 @@
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:backgroundTint="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        android:outlineAmbientShadowColor="@color/lightgrey"/>
 
 </LinearLayout>

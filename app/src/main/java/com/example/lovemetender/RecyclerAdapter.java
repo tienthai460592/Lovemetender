@@ -1,6 +1,8 @@
 package com.example.lovemetender;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     private List<Destination> destinations;
     private Context mContext;
+    private Color colorCode;
 
     public RecyclerAdapter(Context context, List<Destination> destinations) {
         this.mContext = context;
@@ -37,8 +40,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         /** usually bad practice to leave commented code in the project */
 
         holder.locationName.setText(currentDes.getName());
+        holder.locationName.setTextSize(20);
         /** Try and make a dynamic list of actual items. */
         holder.locationIntro.setText(currentDes.getIntroduction());
+        holder.locationType.setText(currentDes.getType());
+        holder.locationOpenHour.setText(currentDes.getOpeningHours());
+        if (currentDes.getType().equalsIgnoreCase("Hotel")){
+           holder.locationType.setTextColor(ContextCompat.getColor(mContext,R.color.red));
+           holder.locationOpenHour.setTextColor(ContextCompat.getColor(mContext,R.color.red));
+           holder.divider.setTextColor(ContextCompat.getColor(mContext,R.color.red));
+
+        }else {
+            holder.locationType.setTextColor(ContextCompat.getColor(mContext,R.color.green));
+            holder.locationOpenHour.setTextColor(ContextCompat.getColor(mContext,R.color.green));
+            holder.divider.setTextColor(ContextCompat.getColor(mContext,R.color.green));
+        }
 
     }
 
@@ -49,7 +65,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView locationName, locationIntro;
+        public TextView locationName, locationIntro, locationType, locationOpenHour,divider;
 
         /**
          * inconsistent naming of fields. I personally prefer degreec, description over textViewName,
@@ -68,6 +84,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             locationName = itemView.findViewById(R.id.locationName);
             locationView = itemView.findViewById(R.id.locationPicPreview);
             locationIntro = itemView.findViewById(R.id.locationIntro);
+            locationType = itemView.findViewById(R.id.locationType);
+            locationOpenHour = itemView.findViewById(R.id.locationOpenHours);
+            divider  = itemView.findViewById(R.id.divider);
 
 
         }
