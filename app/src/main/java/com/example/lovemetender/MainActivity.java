@@ -23,18 +23,20 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    DataProvider dataProvider = new DataProvider();
     TextView tempDescription;
     TextView temperature;
+    TextView codination;
     RecyclerView contentView;
     RecyclerAdapter contentViewAdapter;
     CustomSpinnerAdapter customSpinnerAdapter;
-    ArrayList<Destination> destinations = DataProvider.destinations;
-    ArrayList<Location> locations = DataProvider.locations;
+    ArrayList<Destination> destinations = dataProvider.getDestinations();
+    ArrayList<Location> locations = dataProvider.getLocations();
     Spinner location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadWeather();
@@ -44,36 +46,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void inflateRecyclerView() {
+
         contentView = findViewById(R.id.contentView);
         contentViewAdapter = new RecyclerAdapter(this, destinations);
         contentView.setAdapter(contentViewAdapter);
         contentView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+
     }
 
     private void locationSpinnerSetup() {
+
         location = findViewById(R.id.locationToShow);
         customSpinnerAdapter = new CustomSpinnerAdapter(this, locations);
         location.setAdapter(customSpinnerAdapter);
+
     }
 
     public void loadWeather() {
 
         temperature = findViewById(R.id.degree);
         tempDescription = findViewById(R.id.weather_desc);
-
-        String url ="http://api.openweathermap.org/data/2.5/weather?q=islamabad,pakistan&appid=90ebdc57172a838d0fce0abbc044df8e&units=Imperial";
+        codination = findViewById(R.id.navigationView);
+        String url = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=52830d80c0398cabecf57536734f7f08";
         JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     JSONObject main_object = response.getJSONObject("main");
+                    JSONObject coor_object = response.getJSONObject("coord");
                     JSONArray array = response.getJSONArray("weather");
                     JSONObject object = array.getJSONObject(0);
                     String temp = String.valueOf(main_object.getDouble("temp"));
+                    String cod = String.valueOf(coor_object.getDouble("lat"));
                     String description = object.getString("description");
 
 
                     tempDescription.setText(description);
+                    codination.setText(cod);
 
                     double temp_int = Double.parseDouble(temp);
                     double centi = (temp_int - 32) / 1.8000;
@@ -88,16 +97,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, new Response.ErrorListener() {
+
             @Override
             public void onErrorResponse(VolleyError error) {
-                    temperature.setText(error.getMessage());
-                Log.i("TienS",  error.getMessage());
+
+                temperature.setText(error.getMessage());
+                Log.i("TienS", error.getMessage());
+
             }
         }
         );
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jor);
 
-
     }
+
 }

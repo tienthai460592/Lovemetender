@@ -4,16 +4,16 @@
     <item
         android:id="@+id/navigation_songs"
         android:icon="@drawable/compass"
-        android:title="Discover"/>
+        android:title="@string/discover" />
 
     <item
         android:id="@+id/navigation_albums"
         android:icon="@drawable/lifestyle"
-        android:title="Lifestyle"/>
+        android:title="@string/lifestyle" />
 
     <item
         android:id="@+id/navigation_artists"
         android:icon="@drawable/person"
-        android:title="Profile"/>
+        android:title="@string/profile" />
 
 </menu>

@@ -27,36 +27,38 @@
 
 
     <LinearLayout
-        android:layout_below="@+id/cardView"
         android:id="@+id/typeOpenHourLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@+id/cardView"
         android:layout_marginTop="15dp"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/locationType"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            tools:text="text"
-            android:paddingEnd="10dp"/>
+            android:gravity="center"
+            android:paddingEnd="10dp"
+            tools:text="text" />
 
-        <TextView
+        <ImageView
             android:id="@+id/divider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/typeOpenHourLayout"
             android:layout_weight="0"
             android:gravity="center"
-            android:paddingEnd="10dp"
-            android:text="*" />
+            android:scaleX="0.25"
+            android:scaleY="0.25"
+            android:src="@drawable/circle_divider"
+
+            />
 
         <TextView
             android:id="@+id/locationOpenHours"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/typeOpenHourLayout"
+            android:layout_height="match_parent"
+            android:gravity="center"
             tools:text="24h" />
 
     </LinearLayout>

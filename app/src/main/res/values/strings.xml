@@ -6,4 +6,8 @@
     <string name="destination_opening_hrs">Destination Opening Hours</string>
     <string name="location">Location </string>
     <string name="weather_desc">Weather Description </string>
+    <string name="map">Map </string>
+    <string name="discover">Discover </string>
+    <string name="profile">Profile </string>
+    <string name="lifestyle">Lifestyle </string>
 </resources>

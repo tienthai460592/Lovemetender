@@ -107,7 +107,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:text="Map"
+                    android:text="@string/map"
                     android:textSize="18dp"
                     android:gravity="center"/>
             </LinearLayout>
@@ -163,19 +163,19 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0"
-                                android:paddingTop="15dp"
+                                android:paddingTop="@dimen/margin_medium"
+                                android:textSize="@dimen/text_size_XL"
                                 tools:text="28"
-                                android:textAlignment="viewStart"
-                                android:textSize="30sp" />
+                                android:textAlignment="viewStart" />
 
                             <ImageView
                                 android:id="@+id/celcius"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:paddingTop="25dp"
-                                android:paddingRight="40dp"
-                                android:paddingBottom="10dp"
+                                android:scaleType="fitStart"
+                                android:paddingTop="@dimen/padding_medium"
+                                android:paddingBottom="15dp"
                                 android:src="@drawable/degreec" />
 
 
@@ -186,7 +186,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            tools:text=""
+                            tools:text="intense sun"
+                            android:textSize="@dimen/text_size_medium"
                             android:textAlignment="viewStart" />
                     </LinearLayout>
 
@@ -225,18 +226,19 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0"
-                                android:paddingTop="15dp"
-                                android:text="11"
+                                android:paddingTop="@dimen/padding_normal"
+                                tools:text="11"
                                 android:textAlignment="viewStart"
-                                android:textSize="30sp" />
+                                android:textSize="@dimen/text_size_XL" />
 
                             <TextView
                                 android:id="@+id/textView3"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0"
-                                android:paddingTop="20dp"
-                                android:text="KT" />
+                                android:paddingTop="@dimen/padding_medium"
+                                android:text="KT"
+                                android:textSize="@dimen/text_size_small"/>
                         </LinearLayout>
 
                         <TextView
@@ -244,7 +246,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="North-West"
+                            tools:text="North-West"
                             android:textAlignment="viewStart" />
                     </LinearLayout>
 
