@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     DataProvider dataProvider = new DataProvider();
     TextView tempDescription;
     TextView temperature;
-    TextView codination;
+    TextView windSpeed;
     RecyclerView contentView;
     RecyclerAdapter contentViewAdapter;
     CustomSpinnerAdapter customSpinnerAdapter;
@@ -66,23 +66,23 @@ public class MainActivity extends AppCompatActivity {
 
         temperature = findViewById(R.id.degree);
         tempDescription = findViewById(R.id.weather_desc);
-        codination = findViewById(R.id.navigationView);
+        windSpeed = findViewById(R.id.windSpeedView);
         String url = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=52830d80c0398cabecf57536734f7f08";
         JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     JSONObject main_object = response.getJSONObject("main");
-                    JSONObject coor_object = response.getJSONObject("coord");
+                    JSONObject wind_object = response.getJSONObject("wind");
                     JSONArray array = response.getJSONArray("weather");
                     JSONObject object = array.getJSONObject(0);
                     String temp = String.valueOf(main_object.getDouble("temp"));
-                    String cod = String.valueOf(coor_object.getDouble("lat"));
+                    String wind_speed = String.valueOf(wind_object.getDouble("speed"));
                     String description = object.getString("description");
 
 
                     tempDescription.setText(description);
-                    codination.setText(cod);
+                    windSpeed.setText(wind_speed);
 
                     double temp_int = Double.parseDouble(temp);
                     double centi = (temp_int - 32) / 1.8000;

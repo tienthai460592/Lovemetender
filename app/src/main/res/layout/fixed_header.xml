@@ -201,7 +201,7 @@
                     android:weightSum="2">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/windViewPicture"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -222,7 +222,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/navigationView"
+                                android:id="@+id/windSpeedView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0"
